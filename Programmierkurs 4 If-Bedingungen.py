@@ -29,5 +29,3 @@ elif bus_gesehen: #sonst wenn
 
 #Listen-Operator
 # in ist das linke element in der rechten Kollketion
-
-#Hausi 1 = Durchg. 1 = item = a und out = a, Durchg. 2 = item = b und out = ab....
