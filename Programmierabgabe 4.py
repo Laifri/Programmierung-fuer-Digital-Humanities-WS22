@@ -125,7 +125,7 @@ for item in list_e:
 #index = 3
 
 #Durchgang 4:
-#item = 30
+#item = 0
 #out = 0
 #index = 4
 
@@ -134,4 +134,3 @@ for item in list_e:
 #out = 0
 #index = 4
 
-print(index)
