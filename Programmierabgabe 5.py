@@ -8,13 +8,13 @@ for satz in twitter_daten:
 
 #Geben Sie die Anzahl der Sätze aus.
 saetze_gesamt = len(twitter_daten)
-#print("Anzahl der Sätze:", saetze_gesamt)
+print("Anzahl der Sätze:", saetze_gesamt)
 
 #Geben Sie die durchschnittliche Anzahl von Wörtern pro Satz aus. = Anzahl Wörter / Anzahl  Sätze
 #Anzahl Sätze = saetze.gesamt
 woerter_gesamt = sum(anzahl_token) #Liste summieren = Jede Zahl in der Liste zusammenzählen
 durchschnitt_Wörter =woerter_gesamt/saetze_gesamt
-#print("Durchschnittliche Anzahl Wörter:",durchschnitt_Wörter)
+print("Durchschnittliche Anzahl Wörter:",durchschnitt_Wörter)
 
 #Schreiben Sie alle Sätze, die mehr Tokens haben als der Durchschnitt in eine neue Datei.
 dateipfad  = "Sätze_mehr_als_Durchschnitt.txt"
@@ -35,27 +35,31 @@ for saetze in twitter_daten:
         saetze_weniger_Durchschnitt.append(saetze)
 
 #Geben Sie die Anzahl der jeweiligen Sätze (mehr als Durchschnitt, weniger als Durchschnitt) aus.
-#print("Anzahl der Sätze die mehr Wörter als der Durschnitt haben:",len(saetze_mehr_Durchschnitt))
-#print("Anzahl der Sätze die weniger Wörter als der Durschnitt haben:",len(saetze_weniger_Durchschnitt))
+print("Anzahl der Sätze die mehr Wörter als der Durschnitt haben:",len(saetze_mehr_Durchschnitt))
+print("Anzahl der Sätze die weniger Wörter als der Durschnitt haben:",len(saetze_weniger_Durchschnitt))
 
 #Suchen Sie sich drei Schlagwörter, die in den Tweets oft vorkommen könnten. Schreiben Sie alle Sätze, die mindestens
 #eines dieser Wörter enthalten in eine neue Datei. Denken Sie daran, die Sätze nicht mehrmals in die Datei zu schreiben,
 #auch wenn sie mehrere Schlagwörter enthalten.
 dateipfad_3 = "Schlagwörter"
 datei_3 = open(dateipfad_3, "w", encoding="utf8")
-schlagwoerter = []
-saetze_schlagwoerter = []
+schlagwoerter_saetze = []
+maskcounter = 0
+covidcounter = 0
+viruscounter = 0
 for saetze in twitter_daten:
     if saetze.find("mask") > 0:
         datei_3.write(saetze + "\n")
-        schlagwoerter.append(saetze)
+        schlagwoerter_saetze.append(saetze)
+        maskcounter += saetze.count("mask")
     elif saetze.find ("covid") > 0:
         datei_3.write(saetze + "\n")
-        schlagwoerter.append(saetze)
+        schlagwoerter_saetze.append(saetze)
+        covidcounter += saetze.count("covid")
     elif saetze.find ("virus") > 0:
-        datei_2.write(saetze + "\n")
-        schlagwoerter.append(saetze)
-
+        datei_3.write(saetze + "\n")
+        schlagwoerter_saetze.append(saetze)
+        viruscounter += saetze.count("virus")
 #Geben Sie die Anzahl dieser Sätze, sowie die Schlagwörter aus.
-print(len(str(saetze_schlagwoerter)))
-print("Anzahl Schlagwörter:", len(schlagwoerter))
+print("Anzahl der Schlagwörter:", (maskcounter)+(covidcounter)+(viruscounter))
+print("Anzahl Sätze mit den Schlagwörter:'mask' und/oder 'covid' und/oder 'virus':", len(schlagwoerter_saetze))
