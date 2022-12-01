@@ -30,7 +30,7 @@ dateipfad_2 = "Sätze_weniger_als_Durschnitt"
 datei_2 = open(dateipfad_2, "w", encoding="utf8")
 saetze_weniger_Durchschnitt = []
 for saetze in twitter_daten:
-    if len(saetze) < 18:
+    if len(saetze.split()) < 18: #Korrektur von len(saetze)
         datei_2.write(saetze+"\n")
         saetze_weniger_Durchschnitt.append(saetze)
 
