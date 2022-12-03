@@ -40,7 +40,7 @@ for line in twitter_daten:
 
 #Lesen sie die Datei "corona_twitter.txt" ein und speichern Sie die einzelnen Sätze als Liste.
 
-#Ermitteln Sie die durchschnittliche Anzahl von Tokens über alle Sätze, verwenden Sie zum Tokenisieren nun die zuvor implementierte tokenize-Funktion.
+#Ermitteln Sie die durchschnittliche Anzahl von Tokens für alle Sätze, verwenden Sie zum Tokenisieren nun die zuvor implementierte tokenize-Funktion.
 
 #---
 
