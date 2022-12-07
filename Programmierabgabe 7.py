@@ -1,19 +1,16 @@
-#Bauen Sie die tokenize-Funktion aus der Vorlesung nach.
-#--Für die folgenden 2 Schritte können Sie gerne die vorherige Abgabe erneut benutzen--
+#Bauen Sie die tokenize-Funktion aus der Vorlesung nach:
 #Lesen sie die Datei "corona_twitter.txt" ein und speichern Sie die einzelnen Sätze als Liste.
-#Erweitern Sie die tokenize-Funktion um mindestens eine der drei folgenden Möglichkeiten:
+#Erweitern Sie die tokenize-Funktion um mindestens eine der Möglichkeiten:
 #-Der Tokenizer soll mindestens 2 weitere Sonderzeichen am Wortende erkennen, die in den Sätzen auftauchen.
 #-Der Tokenizer soll mindestens 3 Sonderzeichen am Satzanfang erkennen, die in den Sätzen vorkommen. Zum Beispiel: "(Kansas)" -> ["(", "Kansas", ")"]
-#-Der Tokenizer soll die Abkürzungen n't und 's erkennen und entsprechend abtrennen. Zum Beispiel: "isn't" -> ["is", "n't"]
 def tokenize(satz):
     tokens = satz.split(" ")
     new_tokens = []
 
     for token in tokens:
         if token == "":
-            continue #Ignoriert den restlichen Code aus der Schleife und geht direkt in die nächste über
-        #Hat das Token ein Punkt am Ende?
-        sonderzeichen = {"#","@"}
+            continue
+        sonderzeichen = {"#","@"} #Dies hab ich nachträglich angefügt um zu probieren ob es auch so funktioniert
         if token[-1] == ".":
             new_token = token[:-1]
             punkt = token[-1]
@@ -40,6 +37,12 @@ def tokenize(satz):
         elif (token[0] == "#"):
             new_tokens.append(token[0])
             new_tokens.append(token[1:])
+        elif (token[-1] == "!"):
+            new_tokens.append(token[:-1])
+            new_tokens.append(token[-1])
+        elif (token[-1] == ":"):
+            new_tokens.append(token[:-1])
+            new_tokens.append(token[-1])
         else:
             new_tokens.append(token)
     return new_tokens
