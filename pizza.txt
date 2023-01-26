@@ -1,0 +1,27 @@
+class Pizza:
+
+    def __init__(self):
+        self.belag = []
+        self.stücke = 1
+        self.gebacken = False
+        self.verbrannt = False
+
+    def belegen(self, zutat):
+        self.belag.append(zutat)
+
+    def backen(self):
+        if self.gebacken == False:
+            self.gebacken = True
+        else:
+            self.verbrannt = True
+
+    def schneiden(self):
+        self.stücke = self.stücke * 2
+
+    def status(self):
+        if self.verbrannt == True:
+            print("Die Pizza ist verbrannt!")
+        else:
+            print("Belag:", self.belag)
+            print("Stücke:", self.stücke)
+            print("gebacken:", self.gebacken)
