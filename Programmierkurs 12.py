@@ -33,3 +33,6 @@ pizza1.schneiden()
 
 print(pizza1.belag)
 print(pizza1.stücke)
+
+if __name__ == "__main__":
+# Alles was darunter steht wird ausgeführt, nichts darüber
